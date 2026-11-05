@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Get early access — BCI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+(function(){
+  var map = {
+    home:'/', top:'/',
+    about:'/about/', 'about-sec':'/about/',
+    automation:'/automation/',
+    esop:'/our-model/#esop', model:'/our-model/#esop', 'owned-mean':'/our-model/#esop',
+    how:'/our-model/#how', 'how-sec':'/our-model/#how', 'esop-plain':'/our-model/#esop-plain',
+    team:'/team/', owners:'/team/#owners',
+    contact:'/early-access/', join:'/early-access/#join', 'contact-sec':'/early-access/'
+  };
+  function norm(p){
+    p = (p || '/').replace(/\/index\.html$/, '');
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    return p || '/';
+  }
+  function route(){
+    var raw = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
+    if (!raw || !map[raw]) return;
+    var dest = new URL(map[raw], location.origin);
+    var same = norm(dest.pathname) === norm(location.pathname);
+    var destHash = dest.hash || '';
+    if (same) {
+      if (destHash !== (location.hash || '')) location.replace(dest.pathname + destHash);
+      return;
+    }
+    location.replace(dest.pathname + destHash);
+  }
+  route();
+  window.addEventListener('hashchange', route);
+})();
+</script>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="logo" href="/" aria-label="BCI home"><img class="logo-img" alt="BCI" src="/images/logo.png"></a>
+ <nav>
+  <button id="tg" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mn');var o=m.classList.toggle('open');this.setAttribute('aria-expanded', o?'true':'false')">☰</button>
+  <div class="menu" id="mn"><a class="l" href="/about/">About</a><a class="l" href="/automation/">Automation</a><a class="l" href="/our-model/">Our Model</a><a class="l" href="/team/">Team</a><a class="btn primary" href="/early-access/" aria-current="page">Get early access</a></div>
+ </nav>
+</div></header>
+<main>
+<section id="contact" class="contact"><div class="wrap box">
+ <div>
+  <div class="eyebrow">Early access</div>
+  <h2 id="join">BCI is launching soon. Get in early.</h2>
+  <p>Leave your name and email and we'll tell you when we go live. Own a business and curious about automation or succession? Tell us and we'll reach out personally.</p>
+ </div>
+ <form id="collectForm">
+  <label for="cName">Name<input id="cName" name="name" type="text" required maxlength="120" autocomplete="name" placeholder="Your name"></label>
+  <label for="cEmail">Email<input id="cEmail" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@example.com"></label>
+  <label for="cInterest">I'm interested in<select id="cInterest" name="interest"><option>Early access updates</option><option>Automation for my business</option><option>Selling my business</option><option>Other</option></select></label>
+  <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden"><label for="cWebsite">Leave this field empty</label><input id="cWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+  <button class="btn" type="submit">Get early access</button>
+  <p class="form-status" id="cOk" role="status" aria-live="polite"></p>
+  <small>We'll only use your email to tell you about BCI.</small>
+ </form>
+</div></section>
+
+</main>
+<footer><div class="wrap f">
+ <div><img class="logo-img" alt="BCI" src="/images/logo.png"><br>Not Wall Street. Main Street.<br>Future-proofing the economy — with practical automation and an employee stock ownership plan. Built to stay independent.</div>
+ <div><a href="/early-access/">Get early access</a><br>© 2026 BCI</div>
+</div></footer>
+<script>
+  // Early-access list — same production Supabase project and table as the previous site.
+  // The publishable key is meant to be public. The database lets the public ONLY add rows;
+  // reading, editing and deleting require a founder login (row-level security).
+  var SB_URL = 'https://xtjrnvdedaltwbbvqidr.supabase.co';
+  var SB_KEY = 'sb_publishable_TN75vZ1OE1wcZ-d-PhpNBg_qHjCjVLC';
+  document.getElementById('collectForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var form = e.target;
+    var ok = document.getElementById('cOk');
+    var btn = form.querySelector('button[type="submit"]');
+    function say(t, kind){
+      ok.textContent = t;
+      ok.className = 'form-status show ' + (kind || '');
+    }
+    var name  = document.getElementById('cName').value.trim().slice(0, 120);
+    var email = document.getElementById('cEmail').value.trim().slice(0, 254);
+    var interest = document.getElementById('cInterest').value;
+    // Honeypot: real visitors never see or fill this field. If it has text, pretend success and drop it.
+    if (document.getElementById('cWebsite').value) { say("Thanks \u2014 you're on the early-access list.", 'ok'); form.reset(); return; }
+    if (!name || !email) { say('Please enter your name and email.', 'err'); return; }
+    btn.disabled = true;
+    // Insert only; "return=minimal" means nothing is read back (the public cannot read the list).
+    fetch(SB_URL + '/rest/v1/contacts', {
+      method: 'POST',
+      headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+      body: JSON.stringify({ name: name, email: email, interest: interest || null, source: 'website-early-access' })
+    }).then(function(r){
+      btn.disabled = false;
+      if (r.ok) { say("Thanks \u2014 you're on the early-access list.", 'ok'); form.reset(); }
+      else { say('Something went wrong \u2014 please try again.', 'err'); }
+    }).catch(function(){ btn.disabled = false; say('Something went wrong \u2014 please try again.', 'err'); });
+  });
+</script>
+</body>
+</html>

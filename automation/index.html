@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Automation — BCI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+(function(){
+  var map = {
+    home:'/', top:'/',
+    about:'/about/', 'about-sec':'/about/',
+    automation:'/automation/',
+    esop:'/our-model/#esop', model:'/our-model/#esop', 'owned-mean':'/our-model/#esop',
+    how:'/our-model/#how', 'how-sec':'/our-model/#how', 'esop-plain':'/our-model/#esop-plain',
+    team:'/team/', owners:'/team/#owners',
+    contact:'/early-access/', join:'/early-access/#join', 'contact-sec':'/early-access/'
+  };
+  function norm(p){
+    p = (p || '/').replace(/\/index\.html$/, '');
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    return p || '/';
+  }
+  function route(){
+    var raw = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
+    if (!raw || !map[raw]) return;
+    var dest = new URL(map[raw], location.origin);
+    var same = norm(dest.pathname) === norm(location.pathname);
+    var destHash = dest.hash || '';
+    if (same) {
+      if (destHash !== (location.hash || '')) location.replace(dest.pathname + destHash);
+      return;
+    }
+    location.replace(dest.pathname + destHash);
+  }
+  route();
+  window.addEventListener('hashchange', route);
+})();
+</script>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="logo" href="/" aria-label="BCI home"><img class="logo-img" alt="BCI" src="/images/logo.png"></a>
+ <nav>
+  <button id="tg" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mn');var o=m.classList.toggle('open');this.setAttribute('aria-expanded', o?'true':'false')">☰</button>
+  <div class="menu" id="mn"><a class="l" href="/about/">About</a><a class="l active" href="/automation/" aria-current="page">Automation</a><a class="l" href="/our-model/">Our Model</a><a class="l" href="/team/">Team</a><a class="btn primary" href="/early-access/">Get early access</a></div>
+ </nav>
+</div></header>
+<main>
+<section id="automation"><div class="wrap">
+ <div class="auto-hero">
+  <div>
+   <div class="eyebrow">Automation</div>
+   <h2>Back-office automation small businesses can actually trust.</h2>
+   <p class="lead">Most local shops lose hours every week to paperwork. BCI builds focused bots and playbooks that take admin off the crew — so they can serve customers, keep clean books, and run a tighter operation without hiring a tech team.</p>
+  </div>
+  <div class="card" style="padding:28px;border-top:3px solid var(--mint-fill)">
+   <div class="eyebrow">Practical AI, not science projects</div>
+   <p style="color:var(--ink2);margin:0">Each tool does one clear job, with human sign-off where it matters. Built on the software you already use. Documented so your crew can run and improve it.</p>
+  </div>
+ </div>
+
+ <div class="cards">
+  <div class="card"><div class="ic">$</div><h3>Accounts payable &amp; invoicing</h3><p>Capture vendor bills, code them, route them for approval, and keep clean records ready for the bookkeeper.</p></div>
+  <div class="card"><div class="ic">▤</div><h3>Document intake &amp; filing</h3><p>Emails, PDFs, and scans get read, named, and filed in the right place automatically — and stay easy to find later.</p></div>
+  <div class="card"><div class="ic">✉</div><h3>Customer follow-up</h3><p>Quotes, reminders, and thank-yous drafted and queued so no lead or repeat customer slips through.</p></div>
+  <div class="card"><div class="ic">⚙</div><h3>One-job bots</h3><p>Each bot does one task well, with clear rules and a human check where it counts. Easy to trust and easy to fix.</p></div>
+  <div class="card"><div class="ic">◔</div><h3>Reporting &amp; insight</h3><p>Weekly numbers pulled together automatically so owners see cash, jobs, and trends without a spreadsheet marathon.</p></div>
+  <div class="card"><div class="ic">★</div><h3>Custom builds &amp; consulting</h3><p>Not sure what to automate first? We map your workflows, find the biggest time sinks, and build or advise.</p></div>
+ </div>
+
+ <div style="margin-top:56px">
+  <div class="eyebrow">How our bots &amp; playbooks work</div>
+  <h2>From messy workflow to a repeatable runbook.</h2>
+  <p class="lead">We don’t drop a generic “AI assistant” into your inbox. We turn a real weekly pain into a named playbook your team can run.</p>
+  <div class="playbook">
+   <div class="pb"><div class="tag">Playbook</div><h3>Map the grind</h3><p>Sit with the people doing the work. List every repetitive step — invoices, filing, follow-ups, status checks — and where time and errors pile up.</p></div>
+   <div class="pb"><div class="tag">Bot</div><h3>Automate the top jobs</h3><p>Build focused bots for the two or three highest-payoff tasks. Each one has a clear trigger, rules, and a human approval gate when money or customers are involved.</p></div>
+   <div class="pb"><div class="tag">Hand-off</div><h3>Train &amp; improve</h3><p>Your crew gets documentation and training. We watch the first weeks together, then leave you with tools you own — and a path to add the next bot.</p></div>
+  </div>
+ </div>
+
+ <div class="split">
+  <div>
+   <div class="eyebrow">Inside BCI companies</div>
+   <h2>The same automation runs the businesses we buy.</h2>
+   <p>When BCI acquires a business, automation is part of how we strengthen it from day one. It trims the paperwork, tightens the books, and gives owner-employees better information to run on — which is how we help future-proof the shop itself.</p>
+   <ul class="ul">
+    <li>Fewer admin hours, more time on customers</li>
+    <li>Cleaner financials that are easier to verify</li>
+    <li>Staff trained to run and improve the tools themselves</li>
+    <li>People stay in their jobs. Automation handles the paperwork, not the people.</li>
+   </ul>
+  </div>
+  <div class="card" style="padding:32px">
+   <div class="eyebrow">How an engagement works</div>
+   <h3>1 · Map</h3><p style="color:var(--ink3)">We sit with your team and list the repetitive tasks eating the week.</p>
+   <h3>2 · Build</h3><p style="color:var(--ink3)">We set up focused bots for the top two or three, using the tools you already have.</p>
+   <h3>3 · Hand off</h3><p style="color:var(--ink3);margin:0">Your crew gets training and documentation, and we keep improving it as you grow.</p>
+  </div>
+ </div>
+ <p class="peer"><a href="/our-model/">Read Our Model</a></p>
+</div></section>
+
+
+</main>
+<footer><div class="wrap f">
+ <div><img class="logo-img" alt="BCI" src="/images/logo.png"><br>Not Wall Street. Main Street.<br>Future-proofing the economy — with practical automation and an employee stock ownership plan. Built to stay independent.</div>
+ <div><a href="/early-access/">Get early access</a><br>© 2026 BCI</div>
+</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About — BCI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+(function(){
+  var map = {
+    home:'/', top:'/',
+    about:'/about/', 'about-sec':'/about/',
+    automation:'/automation/',
+    esop:'/our-model/#esop', model:'/our-model/#esop', 'owned-mean':'/our-model/#esop',
+    how:'/our-model/#how', 'how-sec':'/our-model/#how', 'esop-plain':'/our-model/#esop-plain',
+    team:'/team/', owners:'/team/#owners',
+    contact:'/early-access/', join:'/early-access/#join', 'contact-sec':'/early-access/'
+  };
+  function norm(p){
+    p = (p || '/').replace(/\/index\.html$/, '');
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    return p || '/';
+  }
+  function route(){
+    var raw = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
+    if (!raw || !map[raw]) return;
+    var dest = new URL(map[raw], location.origin);
+    var same = norm(dest.pathname) === norm(location.pathname);
+    var destHash = dest.hash || '';
+    if (same) {
+      if (destHash !== (location.hash || '')) location.replace(dest.pathname + destHash);
+      return;
+    }
+    location.replace(dest.pathname + destHash);
+  }
+  route();
+  window.addEventListener('hashchange', route);
+})();
+</script>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="logo" href="/" aria-label="BCI home"><img class="logo-img" alt="BCI" src="/images/logo.png"></a>
+ <nav>
+  <button id="tg" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mn');var o=m.classList.toggle('open');this.setAttribute('aria-expanded', o?'true':'false')">☰</button>
+  <div class="menu" id="mn"><a class="l active" href="/about/" aria-current="page">About</a><a class="l" href="/automation/">Automation</a><a class="l" href="/our-model/">Our Model</a><a class="l" href="/team/">Team</a><a class="btn primary" href="/early-access/">Get early access</a></div>
+ </nav>
+</div></header>
+<main>
+<section id="about"><div class="wrap">
+ <div class="eyebrow">About</div>
+ <h2>We keep the shop in town, and we future-proof how it runs.</h2>
+ <p class="lead">BCI buys proven local businesses from owners who are ready to retire. We strengthen the work with practical automation, and we open a path for the employees who run the business to hold a stake in it. That is how we future-proof the economy: the shop stays useful, and the value stays with the people who built it.</p>
+ <p>Three principals lead BCI. Control stays with them, so no outsider can steer a company away from that mission. <a href="/team/">Meet the team</a>.</p>
+ <div class="cta"><a class="btn primary" href="/automation/">Automation</a><a class="btn ghost" href="/our-model/">Our Model</a></div>
+</div></section>
+<section><div class="wrap">
+ <div class="eyebrow">Who we serve</div>
+ <h2>Real businesses. Established cash flow.</h2>
+ <p class="lead">Not startups, not speculation. We focus on businesses with a trading history, loyal customers, and an owner whose real challenge is succession.</p>
+ <div class="cards" style="grid-template-columns:repeat(4,1fr)" id="ind">
+  <div class="card"><h3>Auto &amp; repair</h3><p>Loyal local customers and recurring demand.</p></div>
+  <div class="card"><h3>Home services</h3><p>HVAC, plumbing, and contracting crews with steady booked work.</p></div>
+  <div class="card"><h3>Food &amp; specialty retail</h3><p>Bakeries, markets, and niche stores with regulars a chain can't buy.</p></div>
+  <div class="card"><h3>Light manufacturing</h3><p>Independent shops with skilled crews and real equipment.</p></div>
+ </div>
+ </div></section>
+
+
+</main>
+<footer><div class="wrap f">
+ <div><img class="logo-img" alt="BCI" src="/images/logo.png"><br>Not Wall Street. Main Street.<br>Future-proofing the economy — with practical automation and an employee stock ownership plan. Built to stay independent.</div>
+ <div><a href="/early-access/">Get early access</a><br>© 2026 BCI</div>
+</div></footer>
+
+</body>
+</html>
