@@ -10,20 +10,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/site.css">
 <style>
-.hero .grid{grid-template-columns:1.02fr .98fr;align-items:center}
-.hero-art{margin:0;background:var(--ink);border-radius:var(--radius);border-top:3px solid var(--mint-fill);box-shadow:0 24px 48px -26px rgba(12,21,38,.62);overflow:hidden;line-height:0}
-.hero-art svg{display:block;width:100%;height:auto}
-.hero-art .trace{stroke-dasharray:6 8;animation:bci-trace 10s linear infinite}
-.hero-art .glow{animation:bci-glow 5.5s ease-in-out infinite}
-@keyframes bci-trace{to{stroke-dashoffset:-140}}
-@keyframes bci-glow{0%,100%{opacity:.32}50%{opacity:.62}}
-@media(prefers-reduced-motion:reduce){
- .hero-art .trace,.hero-art .glow{animation:none}
- .hero-art .glow{opacity:.42}
-}
+.hero h1{max-width:11em}
+.system{display:grid;grid-template-columns:minmax(0,1fr) 168px minmax(0,1fr);gap:8px 28px;align-items:center;margin-top:36px;padding-top:26px;border-top:1px solid var(--line);max-width:980px}
+.system-title{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(1.45rem,2.2vw,1.85rem);letter-spacing:-.02em;line-height:1.12;color:var(--ink);margin:0}
+.system-note{margin:8px 0 0;color:var(--ink2);font-size:1.02rem;line-height:1.45;max-width:28ch}
+.system-in{text-align:right}
+.system-in .system-note{margin-left:auto}
+.system-hinge{display:flex;flex-direction:column;align-items:center;gap:8px}
+.system-rails{display:flex;align-items:center;width:100%}
+.system-rail{flex:1;height:2px;background:var(--mint-fill)}
+.system-dot{width:9px;height:9px;margin:0 6px;background:var(--ink);transform:rotate(45deg)}
+.system-hinge-name{font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mint);text-align:center}
 @media(max-width:860px){
- .hero .grid{grid-template-columns:1fr}
- .hero-art{max-width:520px}
+ .system{grid-template-columns:1fr;gap:0;max-width:none}
+ .system-in,.system-out{text-align:left}
+ .system-in .system-note{margin-left:0}
+ .system-hinge{display:grid;grid-template-columns:18px 1fr;align-items:center;justify-items:start;gap:0 12px;padding:14px 0}
+ .system-rails{grid-column:1;grid-row:1;flex-direction:column;width:9px;height:56px}
+ .system-rail{width:2px;height:16px;flex:none}
+ .system-dot{margin:3px 0}
+ .system-hinge-name{grid-column:2;grid-row:1;text-align:left}
 }
 </style>
 <script>
@@ -69,79 +75,26 @@
 </div></header>
 <main>
 <section class="hero" id="home"><div class="wrap">
- <div class="grid">
-  <div>
-   <div class="eyebrow">Not Wall Street. Main Street.</div>
-   <h1>They kept the best deals locked up.<br><em>We open the door.</em></h1>
-   <p class="lead">Our goal is to future-proof the economy through two things that work together. Practical automation takes the paperwork off a local crew, so the shop can keep serving its town as the work changes. Employee ownership, through an employee stock ownership plan, gives the people who run that shop a path to a stake in it — on top of a paycheck — so the value they build stays with them.</p>
-   <div class="cta"><a class="btn primary" href="/automation/">Automation</a><a class="btn ghost" href="/our-model/">Our Model</a></div>
+ <div class="eyebrow">Not Wall Street. Main Street.</div>
+ <h1>They kept the best deals locked up.<br><em>We open the door.</em></h1>
+ <p class="lead">Our goal is to future-proof the economy through two things that work together. Practical automation takes the paperwork off a local crew, so the shop can keep serving its town as the work changes. Employee ownership, through an employee stock ownership plan, gives the people who run that shop a path to a stake in it — on top of a paycheck — so the value they build stays with them.</p>
+ <div class="system">
+  <div class="system-in">
+   <div class="eyebrow">Automation</div>
+   <p class="system-title">Strengthens the operation</p>
+   <p class="system-note">Paperwork comes off the crew, so the shop can keep serving.</p>
   </div>
-  <figure class="hero-art">
-   <svg viewBox="0 0 480 400" role="img" aria-labelledby="door-title door-desc">
-    <title id="door-title">Open door on a Main Street shop</title>
-    <desc id="door-desc">A local storefront. The shop door is swung open and the lock hangs undone. Circuit lines run along the building, and three people stand in the lit doorway, one holding a key.</desc>
-    <rect width="480" height="400" fill="#0c1526"/>
-    <ellipse class="glow" cx="270" cy="248" rx="78" ry="96" fill="#1ad98c"/>
-    <path d="M0 322 H480 V400 H0 Z" fill="#121c30"/>
-    <path d="M0 322 H480" stroke="#1ad98c" stroke-opacity=".5" stroke-width="2"/>
-    <rect x="44" y="46" width="352" height="276" fill="#152238"/>
-    <rect x="34" y="34" width="372" height="16" fill="#0e1828"/>
-    <rect x="34" y="48" width="372" height="3" fill="#1ad98c"/>
-    <rect x="72" y="66" width="58" height="42" fill="#0c1526" stroke="#c8f6df" stroke-width="2"/>
-    <path d="M101 66 V108 M72 87 H130" stroke="#c8f6df" stroke-width="1.5"/>
-    <rect x="312" y="66" width="58" height="42" fill="#0c1526" stroke="#c8f6df" stroke-width="2"/>
-    <path d="M341 66 V108 M312 87 H370" stroke="#c8f6df" stroke-width="1.5"/>
-    <rect x="322" y="74" width="16" height="22" fill="#8f5c00" opacity=".75"/>
-    <path class="trace" d="M101 62 H230 V52 H341" fill="none" stroke="#1ad98c" stroke-width="1.75" stroke-linejoin="round"/>
-    <circle cx="101" cy="62" r="3.5" fill="#1ad98c"/>
-    <circle cx="230" cy="52" r="3" fill="#c8f6df"/>
-    <circle cx="341" cy="52" r="3.5" fill="#1ad98c"/>
-    <path class="trace" d="M188 150 V292" fill="none" stroke="#067a52" stroke-width="1.75"/>
-    <circle cx="188" cy="150" r="3" fill="#1ad98c"/>
-    <circle cx="188" cy="230" r="3" fill="#1ad98c"/>
-    <circle cx="188" cy="292" r="3" fill="#1ad98c"/>
-    <path d="M156 132 h156 l18 40 H138 Z" fill="#067a52"/>
-    <path d="M184 132 l-5 40 h18 l5-40 Z" fill="#1ad98c"/>
-    <path d="M224 132 l-5 40 h18 l5-40 Z" fill="#1ad98c" opacity=".72"/>
-    <path d="M264 132 l-5 40 h18 l5-40 Z" fill="#1ad98c" opacity=".45"/>
-    <rect x="68" y="168" width="104" height="124" fill="#0c1526" stroke="#c8f6df" stroke-width="3"/>
-    <path d="M120 168 V292 M68 230 H172" stroke="#c8f6df" stroke-width="2"/>
-    <rect x="80" y="248" width="80" height="8" fill="#8f5c00" opacity=".75"/>
-    <rect x="198" y="172" width="114" height="150" fill="#083526"/>
-    <rect class="glow" x="210" y="184" width="90" height="126" fill="#1ad98c"/>
-    <path d="M312 172 L386 190 L382 316 L312 322 Z" fill="#f4efe6"/>
-    <path d="M330 202 h30 v38 h-30 Z" fill="#0c1526"/>
-    <circle cx="326" cy="250" r="3.5" fill="#067a52"/>
-    <rect x="184" y="228" width="14" height="24" rx="1.5" fill="#c2410c"/>
-    <path d="M191 228 v-12 a9 9 0 0 1 18 0" fill="none" stroke="#c2410c" stroke-width="2.6" stroke-linecap="round"/>
-    <rect x="190" y="314" width="160" height="8" fill="#f4efe6"/>
-    <g>
-     <circle cx="232" cy="214" r="10" fill="#f4efe6"/>
-     <rect x="220" y="226" width="24" height="84" rx="8" fill="#c8f6df"/>
-    </g>
-    <g>
-     <circle cx="260" cy="208" r="11" fill="#f4efe6"/>
-     <rect x="246" y="222" width="28" height="90" rx="8" fill="#067a52"/>
-    </g>
-    <g>
-     <circle cx="290" cy="202" r="11" fill="#f4efe6"/>
-     <rect x="276" y="216" width="28" height="96" rx="8" fill="#1ad98c"/>
-     <rect x="298" y="236" width="10" height="22" rx="4" fill="#067a52"/>
-     <g transform="translate(286 252)" fill="none" stroke="#0c1526" stroke-width="2.2" stroke-linecap="round">
-      <circle cx="0" cy="0" r="5" fill="#f4efe6"/>
-      <path d="M5 0 H18 M13 0 v5 M18 0 v5"/>
-     </g>
-    </g>
-    <rect x="62" y="300" width="28" height="20" rx="2" fill="#8f5c00"/>
-    <path d="M76 300 c-12 -14 2 -30 -2 -40 c10 12 22 8 16 34 Z" fill="#067a52"/>
-    <path d="M70 292 c6 -16 16 -12 12 8 Z" fill="#1ad98c"/>
-    <path d="M424 322 V156" stroke="#f4efe6" stroke-width="3" stroke-linecap="round"/>
-    <path d="M424 156 h24" stroke="#f4efe6" stroke-width="3" stroke-linecap="round"/>
-    <circle class="glow" cx="448" cy="164" r="16" fill="#8f5c00"/>
-    <circle cx="448" cy="164" r="6.5" fill="#8f5c00"/>
-   </svg>
-  </figure>
+  <div class="system-hinge">
+   <div class="system-rails" aria-hidden="true"><span class="system-rail"></span><span class="system-dot"></span><span class="system-rail"></span></div>
+   <div class="system-hinge-name">The same shop</div>
+  </div>
+  <div class="system-out">
+   <div class="eyebrow">Employee ownership</div>
+   <p class="system-title">Keeps the value</p>
+   <p class="system-note">With the people who do the work, on top of a paycheck.</p>
+  </div>
  </div>
+ <div class="cta"><a class="btn primary" href="/automation/">Automation</a><a class="btn ghost" href="/our-model/">Our Model</a></div>
 </div></section>
 </main>
 <footer><div class="wrap f">
