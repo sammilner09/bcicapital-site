@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team — BCI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+(function(){
+  var map = {
+    home:'/', top:'/',
+    about:'/about/', 'about-sec':'/about/',
+    automation:'/automation/',
+    esop:'/our-model/#esop', model:'/our-model/#esop', 'owned-mean':'/our-model/#esop',
+    how:'/our-model/#how', 'how-sec':'/our-model/#how', 'esop-plain':'/our-model/#esop-plain',
+    team:'/team/', owners:'/team/#owners',
+    contact:'/early-access/', join:'/early-access/#join', 'contact-sec':'/early-access/'
+  };
+  function norm(p){
+    p = (p || '/').replace(/\/index\.html$/, '');
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    return p || '/';
+  }
+  function route(){
+    var raw = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
+    if (!raw || !map[raw]) return;
+    var dest = new URL(map[raw], location.origin);
+    var same = norm(dest.pathname) === norm(location.pathname);
+    var destHash = dest.hash || '';
+    if (same) {
+      if (destHash !== (location.hash || '')) location.replace(dest.pathname + destHash);
+      return;
+    }
+    location.replace(dest.pathname + destHash);
+  }
+  route();
+  window.addEventListener('hashchange', route);
+})();
+</script>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="logo" href="/" aria-label="BCI home"><img class="logo-img" alt="BCI" src="/images/logo.png"></a>
+ <nav>
+  <button id="tg" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mn');var o=m.classList.toggle('open');this.setAttribute('aria-expanded', o?'true':'false')">☰</button>
+  <div class="menu" id="mn"><a class="l" href="/about/">About</a><a class="l" href="/automation/">Automation</a><a class="l" href="/our-model/">Our Model</a><a class="l active" href="/team/" aria-current="page">Team</a><a class="btn primary" href="/early-access/">Get early access</a></div>
+ </nav>
+</div></header>
+<main>
+<section id="team" class="alt"><div class="wrap">
+ <div class="eyebrow">Who we are</div>
+ <h2 id="owners">Founder-led. Accountable to employees.</h2>
+ <p class="lead">Three principals. Control stays with us by design, so no outsider can steer a BCI company away from its mission.</p>
+ <div class="team">
+  <div class="person"><div class="ph">CA<img src="/images/casey.jpg" alt="Casey Adams" onerror="this.remove()"></div><div class="b"><h3>Casey Adams</h3><div class="role">Founder</div><p>Decorated U.S. Army veteran and entrepreneur who ran TechMC and founded The Kansas City Drone Company. 15+ years turning complex technology into tools that work.</p></div></div>
+  <div class="person"><div class="ph">JA<img src="/images/joe.jpg" alt="Joe Allen IV" onerror="this.remove()"></div><div class="b"><h3>Joe Allen IV</h3><div class="role">Co-Founder · Marketing &amp; Outreach</div><p>Believes employee ownership is the key to bringing America back together, and makes sure the people who do the work get a real path to owning it.</p></div></div>
+  <div class="person"><div class="ph">SM<img src="/images/samuel.jpg" alt="Samuel Milner" onerror="this.remove()"></div><div class="b"><h3>Samuel Milner</h3><div class="role">Co-Founder · AI &amp; Automation</div><p>Based in Kansas, leads BCI's use of AI, from finding deals to running the shops we buy.</p></div></div>
+ </div>
+</div></section>
+
+
+</main>
+<footer><div class="wrap f">
+ <div><img class="logo-img" alt="BCI" src="/images/logo.png"><br>Not Wall Street. Main Street.<br>Future-proofing the economy — with practical automation and an employee stock ownership plan. Built to stay independent.</div>
+ <div><a href="/early-access/">Get early access</a><br>© 2026 BCI</div>
+</div></footer>
+
+</body>
+</html>

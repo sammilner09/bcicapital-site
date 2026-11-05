@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Model — BCI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<script>
+(function(){
+  var map = {
+    home:'/', top:'/',
+    about:'/about/', 'about-sec':'/about/',
+    automation:'/automation/',
+    esop:'/our-model/#esop', model:'/our-model/#esop', 'owned-mean':'/our-model/#esop',
+    how:'/our-model/#how', 'how-sec':'/our-model/#how', 'esop-plain':'/our-model/#esop-plain',
+    team:'/team/', owners:'/team/#owners',
+    contact:'/early-access/', join:'/early-access/#join', 'contact-sec':'/early-access/'
+  };
+  function norm(p){
+    p = (p || '/').replace(/\/index\.html$/, '');
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    return p || '/';
+  }
+  function route(){
+    var raw = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
+    if (!raw || !map[raw]) return;
+    var dest = new URL(map[raw], location.origin);
+    var same = norm(dest.pathname) === norm(location.pathname);
+    var destHash = dest.hash || '';
+    if (same) {
+      if (destHash !== (location.hash || '')) location.replace(dest.pathname + destHash);
+      return;
+    }
+    location.replace(dest.pathname + destHash);
+  }
+  route();
+  window.addEventListener('hashchange', route);
+})();
+</script>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="logo" href="/" aria-label="BCI home"><img class="logo-img" alt="BCI" src="/images/logo.png"></a>
+ <nav>
+  <button id="tg" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mn');var o=m.classList.toggle('open');this.setAttribute('aria-expanded', o?'true':'false')">☰</button>
+  <div class="menu" id="mn"><a class="l" href="/about/">About</a><a class="l" href="/automation/">Automation</a><a class="l active" href="/our-model/" aria-current="page">Our Model</a><a class="l" href="/team/">Team</a><a class="btn primary" href="/early-access/">Get early access</a></div>
+ </nav>
+</div></header>
+<main>
+<section id="esop" class="model"><div class="wrap">
+ <div class="eyebrow">Our Model</div>
+ <h2>Employee ownership, in plain words.</h2>
+ <p class="lead">An employee stock ownership plan (ESOP) is how a company can share ownership with the people who work there. BCI buys proven local businesses from owners who are ready to retire, strengthens them, and opens a path for the crew to hold a stake through a plan like this.</p>
+ <p class="lead">For a long time, buying a profitable private company sat with funds and people who were already wealthy. BCI does this work in the open, and stays private. The aim is a stake for the people who build the company, on top of the paycheck they already earn.</p>
+ <div class="eo"><b>What does employee-owned mean?</b><p>The people who do the work hold a stake in the company through the plan. That stake sits on top of a fair paycheck. The paycheck still comes. The stake is extra, and it stays with the people who build the business.</p></div>
+ <h3 id="how" style="margin-top:42px">How a BCI deal works, in three steps.</h3>
+ <p class="lead">We buy real, operating businesses with proven earnings. High-profit, risk-managed companies with a trading history. Here is the path.</p>
+ <div class="steps">
+  <div class="step"><div class="n">1</div><h3>Find</h3><p>We look for profitable, established local businesses. The owners are ready to retire. They want the company to stay local.</p></div>
+  <div class="step"><div class="n">2</div><h3>Buy and strengthen</h3><p>We study the market. We verify earnings and the customer base. We buy only businesses with real earnings. Then we operate and improve each one, including with practical automation. A nonprofit education arm prepares employees for ownership.</p><p>Disciplined buying. Hands-on operations. Employee preparation.</p></div>
+  <div class="step"><div class="n">3</div><h3>A path to an ESOP</h3><p>Employees get a path to a stake in the business through an employee stock ownership plan (ESOP). The people who built the company are the ones that stake is for. The business stays with the crew inside the building.</p></div>
+ </div>
+</div></section>
+
+<section id="esop-plain"><div class="wrap">
+ <div class="esop-story">
+  <div>
+   <div class="eyebrow">Why it matters</div>
+   <h2>The boardroom wasn't built for work boots. We're bringing them in anyway.</h2>
+   <p>For a generation, the playbook stayed fixed. A retiring owner sells. A fund or a chain buys. The sign changes. Jobs thin out. Profit leaves town. The people who built the business get a farewell cake.</p>
+   <p><strong>BCI runs the opposite play.</strong> Employees take a seat at the ownership table, as well as a line on the schedule. The business stays with the crew inside the building. Ownership stays in town.</p>
+   <p>BCI exists so the people who build a company can hold a stake in it, alongside the people who started it. When employees own a part of what they help create, a town keeps more of the value they built.</p>
+   <p class="cite">About 7 in 10 workers prefer employee-owned companies (71.5%, General Social Survey 2018), with support across parties (73% Democratic-leaning, 73% Republican-leaning, 65% independents).</p>
+  </div>
+  <div class="esop-note">
+   <div class="eyebrow">How the stake is held</div>
+   <h3>The plan holds the shares. People keep their paycheck.</h3>
+   <p>In an employee stock ownership plan, company stock sits in a trust for employees. People take part through the plan. The stake is a benefit on top of wages.</p>
+   <p>Those shares stay in the plan. Each person does not receive stock they can sell on an open market. Who is included, and when someone is paid the value of their stake, is written into that company's plan when the company adopts it.</p>
+   <p>This page describes the path BCI is building. It promises no payout, no tax result, and no stake for every person on day one.</p>
+  </div>
+ </div>
+ <div class="cards">
+  <div class="card"><div class="eyebrow">Who this is for</div><h3>People who build local businesses</h3><p>You want the shop to stay local, and you want the crew who runs it to have a path to a stake in it. BCI was built for that.</p></div>
+  <div class="card"><div class="eyebrow">Who we are</div><h3>We build toward employee ownership</h3><p>We buy businesses to preserve them and move them toward their teams. The shop stays open. The jobs stay with the crew.</p></div>
+  <div class="card"><div class="eyebrow">What stays different</div><h3>The value stays with the crew</h3><p>The path runs through an employee stock ownership plan, and it stays local. Jobs stay local. BCI stays private, and independent of a larger fund.</p></div>
+ </div>
+ <p class="peer"><a href="/automation/">Read the automation explanation</a></p>
+</div></section>
+
+</main>
+<footer><div class="wrap f">
+ <div><img class="logo-img" alt="BCI" src="/images/logo.png"><br>Not Wall Street. Main Street.<br>Future-proofing the economy — with practical automation and an employee stock ownership plan. Built to stay independent.</div>
+ <div><a href="/early-access/">Get early access</a><br>© 2026 BCI</div>
+</div></footer>
+
+</body>
+</html>
