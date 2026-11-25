@@ -2,36 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="color-scheme" content="light">
-<link rel="icon" type="image/png" href="/images/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BCI — Future-proofing the economy with automation and employee ownership</title>
+<title>BCI</title>
+<link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/site.css">
-<style>
-.hero h1{max-width:11em}
-.system{display:grid;grid-template-columns:minmax(0,1fr) 168px minmax(0,1fr);gap:8px 28px;align-items:center;margin-top:36px;padding-top:26px;border-top:1px solid var(--line);max-width:980px}
-.system-title{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(1.45rem,2.2vw,1.85rem);letter-spacing:-.02em;line-height:1.12;color:var(--ink);margin:0}
-.system-note{margin:8px 0 0;color:var(--ink2);font-size:1.02rem;line-height:1.45;max-width:28ch}
-.system-in{text-align:right}
-.system-in .system-note{margin-left:auto}
-.system-hinge{display:flex;flex-direction:column;align-items:center;gap:8px}
-.system-rails{display:flex;align-items:center;width:100%}
-.system-rail{flex:1;height:2px;background:var(--mint-fill)}
-.system-dot{width:9px;height:9px;margin:0 6px;background:var(--ink);transform:rotate(45deg)}
-.system-hinge-name{font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mint);text-align:center}
-@media(max-width:860px){
- .system{grid-template-columns:1fr;gap:0;max-width:none}
- .system-in,.system-out{text-align:left}
- .system-in .system-note{margin-left:0}
- .system-hinge{display:grid;grid-template-columns:18px 1fr;align-items:center;justify-items:start;gap:0 12px;padding:14px 0}
- .system-rails{grid-column:1;grid-row:1;flex-direction:column;width:9px;height:56px}
- .system-rail{width:2px;height:16px;flex:none}
- .system-dot{margin:3px 0}
- .system-hinge-name{grid-column:2;grid-row:1;text-align:left}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/home-v2/home.css">
 <script>
 (function(){
   var map = {
@@ -66,41 +42,128 @@
 </script>
 </head>
 <body>
-<header><div class="wrap nav">
- <a class="logo" href="/" aria-label="BCI home"><img class="logo-img" alt="BCI" src="/images/logo.png"></a>
- <nav>
-  <button id="tg" type="button" aria-label="Menu" aria-expanded="false" onclick="var m=document.getElementById('mn');var o=m.classList.toggle('open');this.setAttribute('aria-expanded', o?'true':'false')">☰</button>
-  <div class="menu" id="mn"><a class="l" href="/about/">About</a><a class="l" href="/automation/">Automation</a><a class="l" href="/our-model/">Our Model</a><a class="l" href="/team/">Team</a><a class="btn primary" href="/early-access/">Get early access</a></div>
- </nav>
-</div></header>
-<main>
-<section class="hero" id="home"><div class="wrap">
- <div class="eyebrow">Not Wall Street. Main Street.</div>
- <h1>They kept the best deals locked up.<br><em>We open the door.</em></h1>
- <p class="lead">Our goal is to future-proof the economy through two things that work together. Practical automation takes the paperwork off a local crew, so the shop can keep serving its town as the work changes. Employee ownership, through an employee stock ownership plan, gives the people who run that shop a path to a stake in it — on top of a paycheck — so the value they build stays with them.</p>
- <div class="system">
-  <div class="system-in">
-   <div class="eyebrow">Automation</div>
-   <p class="system-title">Strengthens the operation</p>
-   <p class="system-note">Paperwork comes off the crew, so the shop can keep serving.</p>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="BCI home"><img src="/images/logo.png" alt="BCI"></a>
+    <nav class="links" id="links">
+      <a href="/about/">About</a>
+      <a href="/automation/">Raven Automation</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="/team/">Team</a>
+      <a href="/early-access/">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-dark btn-sm" href="#waitlist">Join the Waitlist</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </div>
-  <div class="system-hinge">
-   <div class="system-rails" aria-hidden="true"><span class="system-rail"></span><span class="system-dot"></span><span class="system-rail"></span></div>
-   <div class="system-hinge-name">The same shop</div>
-  </div>
-  <div class="system-out">
-   <div class="eyebrow">Employee ownership</div>
-   <p class="system-title">Keeps the value</p>
-   <p class="system-note">With the people who do the work, on top of a paycheck.</p>
-  </div>
- </div>
- <div class="cta"><a class="btn primary" href="/automation/">Automation</a><a class="btn ghost" href="/our-model/">Our Model</a></div>
-</div></section>
-</main>
-<footer><div class="wrap f">
- <div><img class="logo-img" alt="BCI" src="/images/logo.png"><br>Not Wall Street. Main Street.<br>Future-proofing the economy — with practical automation and an employee stock ownership plan. Built to stay independent.</div>
- <div><a href="/early-access/">Get early access</a><br>© 2026 BCI</div>
-</div></footer>
+</header>
 
+<main>
+  <section class="hero">
+    <canvas id="particles" aria-hidden="true"></canvas>
+    <div class="hero-in">
+      <div class="hero-brand"><img src="/home-v2/logo-icon.png" alt=""><span>BCI Capital</span></div>
+      <h1>High&#8209;profit, risk&#8209;managed <br class="br-d">businesses, run smarter</h1>
+      <p class="sub">BCI grows businesses built to last, and builds Raven Automation to take routine work off the people who run them.</p>
+      <div class="cta-row">
+        <a class="btn btn-dark" href="#waitlist">Join the Waitlist</a>
+        <a class="btn btn-light" href="#meet-raven">Meet Raven</a>
+      </div>
+      <p class="trust"><span class="dot"></span>Built for employee ownership</p>
+    </div>
+  </section>
+
+  <section class="section" id="about-bci">
+    <div class="wrap">
+      <p class="eyebrow reveal">About BCI</p>
+      <h2 class="reveal">Strong businesses, practical tools</h2>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.6-.3 4.5 1.3 5 4.8"/></svg></div>
+          <h3>Who we are</h3>
+          <p>BCI is a company founded by three cofounders who believe good businesses can be run smarter.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V7l8-4z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
+          <h3>What we do</h3>
+          <p>We grow high-profit, risk-managed businesses and use Raven Automation to handle routine back-office work.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M10 21v-6h4v6"/></svg></div>
+          <h3>Why it matters</h3>
+          <p>Stronger businesses, built for employee ownership, so more of the value stays with the people who do the work.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section raven" id="meet-raven">
+    <div class="wrap raven-teaser reveal">
+      <div class="raven-copy">
+        <p class="eyebrow">Raven Automation</p>
+        <h2>Meet Raven</h2>
+        <p class="lead">Raven takes routine back-office work off the team, so people can focus on the work that matters.</p>
+        <a class="btn btn-dark" href="/automation/">Learn more</a>
+      </div>
+      <div class="raven-art"><canvas id="ravenCanvas" aria-label="Animated particles forming a raven"></canvas></div>
+    </div>
+  </section>
+
+  <section class="section" id="how-it-works">
+    <div class="wrap">
+      <p class="eyebrow reveal">How it works</p>
+      <h2 class="reveal">Four steps</h2>
+      <ol class="timeline" id="timeline">
+        <li class="tl-step"><span class="tl-dot"></span><span class="n">Step 1</span><h3>Find strong businesses</h3><p>We look for high-profit, risk-managed businesses with steady customers and good teams.</p></li>
+        <li class="tl-step"><span class="tl-dot"></span><span class="n">Step 2</span><h3>Learn from the team</h3><p>We get to know how the business runs day to day, working alongside the people who run it.</p></li>
+        <li class="tl-step"><span class="tl-dot"></span><span class="n">Step 3</span><h3>Automate the back office</h3><p>Raven Automation handles routine back-office work like paperwork and scheduling, to improve margins and profit.</p>
+          <p class="jobs-note"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>Automation supports our people. We don't automate jobs away.</p></li>
+        <li class="tl-step"><span class="tl-dot"></span><span class="n">Step 4</span><h3>Grow together</h3><p>We keep improving the business, with a planned path toward employee ownership.</p></li>
+      </ol>
+      <p class="team-link reveal"><a href="/team/">Meet the team <span>&rarr;</span></a></p>
+    </div>
+  </section>
+
+  <!-- Numbers section intentionally left out until real, verified numbers exist. -->
+
+  <section class="final" id="waitlist">
+    <div class="final-in reveal">
+      <div class="final-copy">
+        <h2>Be part of what's next</h2>
+        <form class="waitlist" onsubmit="return false" aria-label="Waitlist signup (preview, not connected)">
+          <input type="email" placeholder="Your email" aria-label="Email address">
+          <button class="btn btn-gold" type="submit">Join the Waitlist</button>
+        </form>
+        <p class="form-note">Get updates from BCI.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="site-footer">
+  <div class="wrap foot-top">
+    <div class="foot-brand"><img src="/images/logo.png" alt="BCI"></div>
+    <div class="foot-cols">
+      <div><h4>Pages</h4><a href="/about/">About</a><a href="/automation/">Raven Automation</a><a href="#how-it-works">How It Works</a><a href="/team/">Team</a><a href="/early-access/">Contact</a></div>
+      <div><h4>Founders</h4>
+        <span class="fe"><b>Samuel Milner</b><a href="mailto:samuel.milner@bcicapital.io">samuel.milner@bcicapital.io</a></span>
+        <span class="fe"><b>Casey Adams</b><a href="mailto:casey.adams@bcicapital.io">casey.adams@bcicapital.io</a></span>
+        <span class="fe"><b>Joe Allen IV</b><a href="mailto:joe.allen@bcicapital.io">joe.allen@bcicapital.io</a></span>
+      </div>
+      <div><h4>Follow</h4>
+        <div class="socials">
+          <a href="#" aria-label="Instagram (link coming soon)"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" class="f"/></svg></a>
+          <a href="#" aria-label="Facebook (link coming soon)"><svg viewBox="0 0 24 24"><path d="M14 8.5h2.5V5H14c-2.2 0-3.5 1.5-3.5 3.7V11H8v3.4h2.5V21H14v-6.6h2.4l.5-3.4H14V9.2c0-.4.3-.7.7-.7z" class="f"/></svg></a>
+          <a href="#" aria-label="YouTube (link coming soon)"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" class="f"/></svg></a>
+          <a href="#" aria-label="TikTok (link coming soon)"><svg viewBox="0 0 24 24"><path d="M14.5 3c.4 2.4 1.9 3.9 4.5 4.2v3.1c-1.6 0-3.1-.5-4.4-1.4v6.2a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3.2a2.2 2.2 0 1 0 1.3 2V3h3z" class="f"/></svg></a>
+        </div>
+        <p class="ph-note">Social links coming soon</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-bottom"><span>&copy; 2026 BCI</span></div>
+</footer>
+<script src="/home-v2/home.js"></script>
 </body>
 </html>
