@@ -135,9 +135,10 @@ p{line-height:1.55}
 .ph-note{font-size:13px;color:var(--ink2);margin:12px 0 0}
 .foot-bottom{border-top:1px solid var(--line);display:flex;justify-content:space-between;padding-top:22px;padding-bottom:28px;font-size:14px;color:var(--ink2);margin-top:60px}
 
-/* reveal — slightly less than home */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
+/* reveal — slightly less than home. Visible with no JS; html.js hides until .in. */
+.reveal{opacity:1;transform:none}
+html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+html.js .reveal.in{opacity:1;transform:none}
 
 @media(max-width:980px){
   .links{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;padding:10px 20px 20px;border-bottom:1px solid var(--line)}
@@ -180,12 +181,12 @@ p{line-height:1.55}
   .waitlist{flex-direction:column;border-radius:22px}
   .waitlist input{height:48px}
   .foot-bottom{flex-direction:column;gap:10px}
-  .reveal{transform:translateY(8px);transition-duration:.45s}
+  html.js .reveal{transform:translateY(8px);transition-duration:.45s}
 }
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
+  .reveal,html.js .reveal{opacity:1;transform:none;transition:none}
   .shop .float,.path:after{animation:none;transition:none}
   .path.in:after{width:84%}
   .btn:hover{transform:none}
