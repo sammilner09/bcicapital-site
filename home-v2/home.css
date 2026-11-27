@@ -94,7 +94,7 @@ p{line-height:1.55}
 .foot{padding:90px 0 0}
 .foot-top{display:grid;grid-template-columns:1.2fr 1.5fr;gap:40px}
 .foot-tag{font-size:26px;letter-spacing:-.02em;margin:0;max-width:20ch;line-height:1.25}
-.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .foot-cols h4{font-size:14px;font-weight:400;color:var(--ink2);margin:0 0 16px}
 .foot-cols a,.foot-cols span{display:block;font-size:15px;margin-bottom:10px}
 .foot-cols a:hover{color:var(--gold-d)}
@@ -166,8 +166,7 @@ p{line-height:1.55}
 .foot{padding:90px 0 0}
 .foot-top{grid-template-columns:1fr 2.2fr}
 .foot-brand img{height:34px;width:auto}
-.foot-cols{grid-template-columns:1fr 1.5fr 1fr}
-.fe{display:block;margin-bottom:14px!important}.fe b{display:block;font-weight:500;font-size:15px;margin-bottom:2px}.fe a{color:var(--ink2);margin:0!important;font-size:14.5px!important}
+.foot-cols{grid-template-columns:1fr 1fr}
 .ph-tag{display:inline-block!important;font-size:12.5px!important;background:var(--gold-l);color:var(--gold-d);padding:2px 9px;border-radius:999px;margin:0!important}
 .socials{display:flex;gap:10px}
 .socials a{width:42px;height:42px;border-radius:50%;display:grid!important;place-items:center;background:var(--soft);margin:0!important;transition:background .2s}
