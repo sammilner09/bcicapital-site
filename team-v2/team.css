@@ -52,11 +52,10 @@ h1{font-size:clamp(30px,3.8vw,54px);line-height:1.1;letter-spacing:-.035em;font-
 .foot{padding:90px 0 0}
 .foot-top{display:grid;grid-template-columns:1fr 2.2fr;gap:40px}
 .foot-brand img{height:34px;width:auto}
-.foot-cols{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:24px}
+.foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .foot-cols h4{font-size:14px;font-weight:400;color:var(--ink2);margin:0 0 16px}
 .foot-cols a,.foot-cols span{display:block;font-size:15px;margin-bottom:10px}
 .foot-cols a:hover{color:var(--gold-d)}
-.fe{display:block;margin-bottom:14px!important}.fe b{display:block;font-weight:500;font-size:15px;margin-bottom:2px}.fe a{color:var(--ink2);margin:0!important;font-size:14.5px!important}
 .socials{display:flex;gap:10px}
 .socials a{width:42px;height:42px;border-radius:50%;display:grid!important;place-items:center;background:var(--soft);margin:0!important;transition:background .2s}
 .socials a:hover{background:var(--gold-l)}

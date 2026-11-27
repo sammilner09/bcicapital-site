@@ -148,13 +148,10 @@ p{line-height:1.55}
 .foot{border-top:1px solid var(--line);padding:64px 0 0;color:var(--ink2);background:#fff}
 .foot-top{display:grid;grid-template-columns:200px 1fr;gap:48px;padding-bottom:48px}
 .foot-brand img{height:28px;width:auto}
-.foot-cols{display:grid;grid-template-columns:1.1fr 1.4fr 1fr;gap:32px}
+.foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px}
 .foot h4{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:0 0 16px;font-weight:600}
 .foot-cols a,.foot-cols span{display:block;font-size:15px;margin:0 0 8px;color:var(--ink2)}
 .foot-cols a:hover{color:var(--ink)}
-.fe{margin-bottom:12px!important}
-.fe b{display:block;color:var(--ink);font-weight:500;font-size:15px}
-.fe a{margin:2px 0 0}
 .socials{display:flex;gap:8px;flex-wrap:wrap}
 .socials a{width:40px;height:40px;border-radius:50%;background:var(--soft);display:grid;place-items:center}
 .socials a:hover{background:#eef0f3}
