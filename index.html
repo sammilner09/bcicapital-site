@@ -144,9 +144,14 @@
     <div class="final-in reveal">
       <div class="final-copy">
         <h2>Own the change.</h2>
-        <form class="waitlist" onsubmit="return false" aria-label="Waitlist signup (preview, not connected)">
-          <input type="email" placeholder="Your email" aria-label="Email address">
-          <button class="btn btn-gold" type="submit">Join the Waitlist</button>
+        <form class="contact-form" data-contact-source="website-home-waitlist">
+          <div class="waitlist">
+            <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden"><label for="homeWebsite">Leave this field empty</label><input id="homeWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+            <input id="homeName" name="name" type="text" required maxlength="120" autocomplete="name" placeholder="Your name" aria-label="Name">
+            <input id="homeEmail" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="Your email" aria-label="Email address">
+            <button class="btn btn-gold" type="submit">Join the Waitlist</button>
+          </div>
+          <p class="form-status" role="status" aria-live="polite"></p>
         </form>
         <p class="form-note">Get updates from BCI. Updates, not investment offers.</p>
       </div>
@@ -172,6 +177,7 @@
   </div>
   <div class="wrap foot-bottom"><span>&copy; 2026 BCI</span></div>
 </footer>
+<script src="/assets/contact-form.js"></script>
 <script src="/home-v2/home.js"></script>
 </body>
 </html>

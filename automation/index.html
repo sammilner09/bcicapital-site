@@ -31,7 +31,7 @@
   function route(){
     var raw = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
     if (!raw || !map[raw]) return;
-    var dest = new URL(map[raw], location.origin);
+    var dest = new URL(map[raw], location.href);
     var same = norm(dest.pathname) === norm(location.pathname);
     var destHash = dest.hash || '';
     if (same) {
@@ -327,10 +327,15 @@
         <h2>Request a demo</h2>
         <p class="form-note">Leave your email and we will follow up when a demo is ready.</p>
       </div>
-      <form class="demo-form" action="#" method="post" onsubmit="return false" aria-label="Demo request (preview, not connected)">
-        <input type="email" name="email" autocomplete="email" placeholder="Your email" aria-label="Email address">
-        <button class="btn btn-gold" type="submit">Request a demo</button>
-      </form>
+      <div class="demo-panel">
+        <form class="demo-form" data-contact-source="website-raven-demo">
+          <div aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden"><label for="demoWebsite">Leave this field empty</label><input id="demoWebsite" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <input id="demoName" name="name" type="text" required maxlength="120" autocomplete="name" placeholder="Your name" aria-label="Name">
+          <input id="demoEmail" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="Your email" aria-label="Email address">
+          <button class="btn btn-gold" type="submit">Request a demo</button>
+        </form>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </div>
     </div>
   </section>
 </main>
@@ -352,6 +357,7 @@
   </div>
   <div class="wrap foot-bottom"><span>&copy; 2026 BCI</span></div>
 </footer>
+<script src="/assets/contact-form.js"></script>
 <script src="/automation-v2/automation.js"></script>
 </body>
 </html>

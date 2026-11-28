@@ -78,7 +78,7 @@
         <h2>If your job can be done on a computer, AI is coming for it.</h2>
         <p class="lead">Leave your name and email for updates as BCI buys companies for the people.</p>
       </div>
-      <form id="collectForm">
+      <form id="collectForm" data-contact-source="website-early-access">
         <label for="cName">Name<input id="cName" name="name" type="text" required maxlength="120" autocomplete="name" placeholder="Your name"></label>
         <label for="cEmail">Email<input id="cEmail" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@example.com"></label>
         <label for="cInterest">I'm interested in<select id="cInterest" name="interest"><option>Early access updates</option><option>Automation for my business</option><option>Selling my business</option><option>Other</option></select></label>
@@ -132,40 +132,7 @@
   </div>
   <div class="wrap foot-bottom"><span>&copy; 2026 BCI</span></div>
 </footer>
-<script>
-  // Early-access list — same production Supabase project and table as the previous site.
-  // The publishable key is meant to be public. The database lets the public ONLY add rows;
-  // reading, editing and deleting require a founder login (row-level security).
-  var SB_URL = 'https://xtjrnvdedaltwbbvqidr.supabase.co';
-  var SB_KEY = 'sb_publishable_TN75vZ1OE1wcZ-d-PhpNBg_qHjCjVLC';
-  document.getElementById('collectForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var form = e.target;
-    var ok = document.getElementById('cOk');
-    var btn = form.querySelector('button[type="submit"]');
-    function say(t, kind){
-      ok.textContent = t;
-      ok.className = 'form-status show ' + (kind || '');
-    }
-    var name  = document.getElementById('cName').value.trim().slice(0, 120);
-    var email = document.getElementById('cEmail').value.trim().slice(0, 254);
-    var interest = document.getElementById('cInterest').value;
-    // Honeypot: real visitors never see or fill this field. If it has text, pretend success and drop it.
-    if (document.getElementById('cWebsite').value) { say("Thanks \u2014 you're on the early-access list.", 'ok'); form.reset(); return; }
-    if (!name || !email) { say('Please enter your name and email.', 'err'); return; }
-    btn.disabled = true;
-    // Insert only; "return=minimal" means nothing is read back (the public cannot read the list).
-    fetch(SB_URL + '/rest/v1/contacts', {
-      method: 'POST',
-      headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
-      body: JSON.stringify({ name: name, email: email, interest: interest || null, source: 'website-early-access' })
-    }).then(function(r){
-      btn.disabled = false;
-      if (r.ok) { say("Thanks \u2014 you're on the early-access list.", 'ok'); form.reset(); }
-      else { say('Something went wrong \u2014 please try again.', 'err'); }
-    }).catch(function(){ btn.disabled = false; say('Something went wrong \u2014 please try again.', 'err'); });
-  });
-</script>
+<script src="/assets/contact-form.js"></script>
 <script src="/about-v2/about.js"></script>
 </body>
 </html>

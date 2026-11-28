@@ -140,9 +140,15 @@ p{line-height:1.55}
 .close-in{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
 .close h2{margin:0;max-width:none}
 .close .form-note{margin:10px 0 0;font-size:14px;color:var(--ink2)}
-.demo-form{display:flex;align-items:center;background:var(--soft);border-radius:999px;padding:6px 6px 6px 22px;min-width:min(100%,420px);box-shadow:inset 0 0 0 1px var(--line)}
-.demo-form input{flex:1;border:0;background:transparent;font:inherit;font-size:16px;height:40px;outline:none;color:var(--ink);min-width:0}
+.demo-panel{flex:1 1 560px;max-width:680px;min-width:min(100%,280px)}
+.demo-form{display:flex;align-items:center;background:var(--soft);border-radius:999px;padding:6px;width:100%;position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
+.demo-form input{flex:1;border:0;background:transparent;font:inherit;font-size:16px;height:40px;outline:none;color:var(--ink);min-width:0;padding:0 14px}
 .demo-form input::placeholder{color:#8A93A3}
+.demo-form .btn:disabled{opacity:.6;cursor:default;transform:none}
+.demo-panel .form-status{display:none;margin:10px 8px 0;font-size:14px;font-weight:500}
+.demo-panel .form-status.show{display:block}
+.demo-panel .form-status.ok{color:#067a52}
+.demo-panel .form-status.err{color:#dc2f2f}
 
 /* footer — same as home / About v2 */
 .foot{border-top:1px solid var(--line);padding:64px 0 0;color:var(--ink2);background:#fff}
@@ -186,8 +192,9 @@ p{line-height:1.55}
   .section{padding:64px 0}
   .later{padding:80px 0}
   .close{padding:44px 0 56px}
+  .demo-panel{max-width:none;flex-basis:100%}
   .demo-form{flex-direction:column;border-radius:22px;padding:8px;align-items:stretch;min-width:0;width:100%}
-  .demo-form input{height:48px;padding:0 14px}
+  .demo-form input{height:48px;flex:none;padding:0 14px}
   .close-in{align-items:stretch}
   .foot-bottom{flex-direction:column;gap:10px}
   /* same copy length; less motion */
