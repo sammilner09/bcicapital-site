@@ -11,16 +11,21 @@
   var phone=matchMedia('(max-width:600px)').matches;
 
   var els=document.querySelectorAll('.reveal');
-  if(reduce){
-    els.forEach(function(el){el.classList.add('in')});
-  }else if('IntersectionObserver' in window){
+  function showAll(){els.forEach(function(el){el.classList.add('in')});}
+  /* Full-page captures never scroll, so off-screen nodes stay unobserved.
+     Reveal anything still hidden shortly after load. */
+  var fallback=setTimeout(showAll,700);
+  if(reduce||!('IntersectionObserver' in window)){
+    showAll();
+    clearTimeout(fallback);
+  }else{
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -32px 0px'});
     els.forEach(function(el,i){
       // slightly less stagger than home; even less on phones
       el.style.transitionDelay=(phone?((i%2)*40):(i%3)*60)+'ms';
       io.observe(el);
     });
-  }else els.forEach(function(el){el.classList.add('in')});
+  }
 
   var path=document.getElementById('path');
   if(path){

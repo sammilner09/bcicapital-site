@@ -12,6 +12,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/team-v2/team.css">
 <script>
+document.documentElement.classList.add('js');
+/* If about.js never runs, or IntersectionObserver never fires for off-screen
+   cards (full-page captures do not scroll), do not leave .reveal invisible. */
+setTimeout(function(){
+  var nodes=document.querySelectorAll('.reveal');
+  for(var i=0;i<nodes.length;i++) nodes[i].classList.add('in');
+},700);
 (function(){
   var map = {
     home:'/', top:'/',
@@ -90,7 +97,7 @@
           <div class="portrait"><img src="/images/samuel-e531995fafcb.jpg" alt="Samuel Milner"></div>
           <h3>Samuel Milner</h3>
           <p class="role">Co-Founder &amp; Chief Technology Officer</p>
-          <p class="bio">Samuel is a co-founder of BCI, based in Kansas, and he leads its AI work, from finding deals to running the shops we buy. He builds the automation, and he knows where it is heading: AI will do the computer work. That's why he's building BCI so the people who do the work get a real path to owning it.</p>
+          <p class="bio">Samuel is a co-founder of BCI and leads its AI work, from finding deals to running the shops we buy. His north star is simple: open-source the entire US economy. He builds the automation himself, so he knows exactly where it's heading. AI is going to do the computer work, and the value it creates shouldn't end up with a handful of people at the top. That's why BCI buys companies for the people. The folks who built a business and keep it running every day should be the ones who own it, and Samuel is building BCI to make that the normal way companies change hands.</p>
         </article>
       </div>
     </div>

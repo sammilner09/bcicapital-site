@@ -12,6 +12,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/about-v2/about.css">
 <script>
+document.documentElement.classList.add('js');
+/* If about.js never runs, or IntersectionObserver never fires for off-screen
+   blocks (full-page captures do not scroll), do not leave .reveal invisible. */
+setTimeout(function(){
+  var nodes=document.querySelectorAll('.reveal');
+  for(var i=0;i<nodes.length;i++) nodes[i].classList.add('in');
+},700);
 (function(){
   var map = {
     home:'/', top:'/',

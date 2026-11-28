@@ -63,8 +63,10 @@ h1{font-size:clamp(30px,3.8vw,54px);line-height:1.1;letter-spacing:-.035em;font-
 .ph-note{font-size:13px;color:var(--ink2);margin:12px 0 0}
 .foot-bottom{border-top:1px solid var(--line);display:flex;justify-content:space-between;padding-top:22px;padding-bottom:28px;font-size:14px;color:var(--ink2);margin-top:60px}
 
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
+/* Visible with no JS. html.js hides until .in so the entrance can still play. */
+.reveal{opacity:1;transform:none}
+html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+html.js .reveal.in{opacity:1;transform:none}
 
 @media(max-width:980px){
   .links{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;padding:10px 20px 20px;border-bottom:1px solid var(--line)}
@@ -88,11 +90,11 @@ h1{font-size:clamp(30px,3.8vw,54px);line-height:1.1;letter-spacing:-.035em;font-
   .portrait{width:140px;height:140px}
   .person{padding:28px 22px 30px}
   .foot-bottom{flex-direction:column;gap:10px}
-  .reveal{transform:translateY(8px);transition-duration:.45s}
+  html.js .reveal{transform:translateY(8px);transition-duration:.45s}
 }
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
+  .reveal,html.js .reveal{opacity:1;transform:none;transition:none}
   .btn:hover{transform:none}
 }
