@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raven OS | Draft preview | BCI</title>
+<meta name="description" content="Draft preview, not live. Raven is an AI-first operating system for your company, with a straightforward onboarding process to begin automating your business operations.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/automation-v2/automation.css">
+<link rel="stylesheet" href="/raven-os/raven-os.css">
+<script>
+(function(){
+  var map = {
+    home:'/', top:'/',
+    about:'/about/', 'about-sec':'/about/',
+    automation:'/automation/',
+    esop:'/our-model/#esop', model:'/our-model/#esop', 'owned-mean':'/our-model/#esop',
+    how:'/our-model/#how', 'how-sec':'/our-model/#how', 'esop-plain':'/our-model/#esop-plain',
+    team:'/team/', owners:'/team/#owners',
+    contact:'/early-access/', join:'/early-access/#join', 'contact-sec':'/early-access/'
+  };
+  function norm(p){
+    p = (p || '/').replace(/\/index\.html$/, '');
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    return p || '/';
+  }
+  function route(){
+    var raw = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
+    if (!raw || !map[raw]) return;
+    var dest = new URL(map[raw], location.origin);
+    var same = norm(dest.pathname) === norm(location.pathname);
+    var destHash = dest.hash || '';
+    if (same) {
+      if (destHash !== (location.hash || '') && destHash) location.replace(dest.pathname + destHash);
+      return;
+    }
+    location.replace(dest.pathname + destHash);
+  }
+  route();
+  window.addEventListener('hashchange', route);
+})();
+</script>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/" aria-label="BCI home"><img src="/images/logo.png" alt="BCI"></a>
+    <nav class="links" id="links">
+      <a href="/about/">About</a>
+      <a href="/automation/">Raven Automation</a>
+      <a href="/#how-it-works">How It Works</a>
+      <a href="/team/">Team</a>
+      <a href="/early-access/">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-dark btn-sm" href="/#waitlist">Join the Waitlist</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" type="button"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="soon-bar" role="status"><b>Draft preview</b> &nbsp;·&nbsp; Not live · This page does not download software or collect information</div>
+
+<main>
+  <section class="hero ros-hero">
+    <div class="hero-in">
+      <div class="ros-hero-copy">
+        <span class="rule"></span>
+        <div class="eyebrow">
+          <span class="brand-line">Raven Automation</span>
+          <span class="chip">Draft preview</span>
+        </div>
+        <h1>Meet Raven</h1>
+        <p class="sub">Raven is an AI first operating system for your company, with a super easy onboarding process to begin automating all of your business operations.</p>
+        <div class="cta-row">
+          <a class="btn btn-dark" href="#install" title="Mockup control — no file is downloaded">Download Raven OS</a>
+          <a class="btn btn-light" href="#meet-raven">Meet Raven</a>
+        </div>
+        <p class="mock-note">Mockup control — this button does not download software.</p>
+        <p class="trust"><span class="dot"></span>Built for employee ownership</p>
+      </div>
+      <div class="ros-os" aria-hidden="true">
+        <div class="ros-menubar">
+          <div class="ros-mark"><img src="/home-v2/logo-icon.png" alt="">Raven OS</div>
+          <div class="meta"><span class="example-tag">Example data</span><span>Example Company</span></div>
+        </div>
+        <div class="ros-desk">
+          <div class="ros-dept-grid ros-dept-grid-2">
+            <article class="ros-win">
+              <div class="ros-win-bar">Marketing and Sales <span class="ros-win-controls" aria-hidden="true"><i></i><i></i></span></div>
+              <div class="ros-dept-body">
+                <p>Open the department, then onboard the people who run it.</p>
+                <span class="btn btn-dark ros-btn-os">Onboard</span>
+              </div>
+            </article>
+            <article class="ros-win">
+              <div class="ros-win-bar">Business Operations <span class="ros-win-controls" aria-hidden="true"><i></i><i></i></span></div>
+              <div class="ros-dept-body">
+                <p>Set up the department window and send the invite link down the org.</p>
+                <span class="btn btn-dark ros-btn-os">Onboard</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="ros-dock">
+          <span class="ros-dock-item on"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></span>
+          <span class="ros-dock-item"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M10 20v-6h4v6"/></svg></span>
+          <span class="ros-dock-item"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.2"/><path d="M4 7l8 6 8-6"/></svg></span>
+          <span class="ros-dock-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3V20.5M3.5 12h2.2M18.3 12H20.5M6 6l1.6 1.6M16.4 16.4L18 18M18 6l-1.6 1.6M7.6 16.4L6 18"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="meet-raven">
+    <div class="wrap intro-grid">
+      <div>
+        <span class="rule"></span>
+        <p class="eyebrow">Raven Automation</p>
+        <h2>An AI-first operating system for the company.</h2>
+        <p class="lede">Raven is the operating system and the company dashboard. Raven OS is a full operating system you install on company computers. People across the business use it under a company login. Executives sit down at a Raven desktop — laptop first, phone second — and see the company by department.</p>
+        <p class="lede">Raven works with leading AI models. BCI helps set the company up and match models to each workflow. Field staff get a bot for their role. The executive desktop is the place that brings the company together.</p>
+        <p class="lede">If your job can be done on a computer, AI is coming for it. That is BCI’s conviction. Employee ownership puts the people who do the work on the owning side when it happens. Raven is the AI BCI puts to work for its people.</p>
+      </div>
+      <aside class="jobs-note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.2 2.2 4.8-5.2"/></svg>
+        <span>Automation supports our people. We don’t automate jobs away.</span>
+      </aside>
+    </div>
+    <div class="wrap">
+      <div class="ros-cards">
+        <article class="ros-card">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 19h8M12 17v2"/></svg></div>
+          <h3>The company desktop</h3>
+          <p>Executives see the business at a high level, department by department, on a Raven OS desktop. The phone is a companion, not the main workplace.</p>
+        </article>
+        <article class="ros-card">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.6-.3 4.5 1.3 5 4.8"/></svg></div>
+          <h3>A bot for each role</h3>
+          <p>Each person connects email and their job software, and gets a bot for their role. Onboarding is meant to move down the organization from the people who lead each department.</p>
+        </article>
+        <article class="ros-card">
+          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V7l8-4z"/></svg></div>
+          <h3>Built for employee ownership</h3>
+          <p>BCI buys high-profit, risk-managed businesses and builds the path for the people who do the work to own a stake. Raven is the operating system we put behind that work.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="install">
+    <div class="wrap">
+      <span class="rule"></span>
+      <p class="eyebrow">Getting started</p>
+      <h2 class="wide-h">Install and setup</h2>
+      <p class="lede">Raven OS is a full operating system you install on company computers from a USB installer. This is a draft of the path, not a shipping product.</p>
+      <div class="ros-steps">
+        <article class="ros-step">
+          <span class="n">Step 1</span>
+          <h3>Download the installer</h3>
+          <p>Get the Raven OS installer from this page. In this draft, the button does not provide a file.</p>
+        </article>
+        <article class="ros-step">
+          <span class="n">Step 2</span>
+          <h3>Put it on a USB drive</h3>
+          <p>Copy the installer to a USB drive so it can be used on company computers.</p>
+        </article>
+        <article class="ros-step">
+          <span class="n">Step 3</span>
+          <h3>Boot from the USB drive</h3>
+          <p>Boot company computers from the USB drive to install Raven OS.</p>
+        </article>
+        <article class="ros-step">
+          <span class="n">Step 4</span>
+          <h3>First start</h3>
+          <p>On first start, the owner sets up the company.</p>
+        </article>
+        <article class="ros-step">
+          <span class="n">Step 5</span>
+          <h3>Invite the staff</h3>
+          <p>Invite links cascade to staff, who sign in with a company email.</p>
+        </article>
+        <article class="ros-step">
+          <span class="n">Step 6</span>
+          <h3>Connect the work</h3>
+          <p>Each person connects email and their job software and gets a bot for their role.</p>
+        </article>
+      </div>
+      <div class="ros-callout">
+        <p><b>Draft concept.</b> Raven OS is shown here as a full operating system you install on company computers, not as an app that runs on another system. How this is described in public, including any comparison to other operating systems, needs attorney and IT review. This draft does not claim that Raven OS is available, that it runs on particular hardware, or that the software a company already uses will run on it.</p>
+      </div>
+
+      <div class="ros-start" id="setup-call">
+        <div>
+          <p class="eyebrow">Onboarding</p>
+          <h2>Self-serve, plus a BCI setup call.</h2>
+          <p class="lede">You can start on your own: download the USB installer and begin company setup. A BCI setup call is part of onboarding, so someone can walk through first start with you. This draft does not collect information or provide a file.</p>
+        </div>
+        <div class="ros-start-actions">
+          <a class="btn btn-dark" href="#install" title="Mockup control — no file is downloaded">Download Raven OS</a>
+          <button class="btn btn-gold" type="button" id="bookCall" aria-describedby="bookCallNote">Book a BCI setup call</button>
+          <p class="form-note" id="bookCallNote">The setup call button is a placeholder and has no scheduling link. Download is a mockup control — no file is provided.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="videos">
+    <div class="wrap">
+      <span class="rule"></span>
+      <p class="eyebrow">Watch first</p>
+      <h2>See how it works</h2>
+      <p class="lede">A short explainer, with room for more videos so a company can start from the page. No videos have been added to this draft.</p>
+      <div class="ros-video-hero">
+        <span class="chip ph-label">Placeholder</span>
+        <div>
+          <div class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6.5v11l10-5.5z"/></svg></div>
+          <h3>Short explainer video</h3>
+          <p>Video placeholder. No video has been added yet.</p>
+        </div>
+      </div>
+      <div class="ros-video-grid">
+        <div class="ros-video-slot">
+          <div>
+            <span class="n">Placeholder</span>
+            <p>Explainer video slot. Room for a walkthrough of the USB installer and first start.</p>
+          </div>
+        </div>
+        <div class="ros-video-slot">
+          <div>
+            <span class="n">Placeholder</span>
+            <p>Explainer video slot. Room for a walkthrough of department onboarding.</p>
+          </div>
+        </div>
+        <div class="ros-video-slot">
+          <div>
+            <span class="n">Placeholder</span>
+            <p>Explainer video slot. Room for a walkthrough of the executive desktop.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="onboarding">
+    <div class="wrap">
+      <span class="rule"></span>
+      <p class="eyebrow">Department windows</p>
+      <h2 class="wide-h">Onboard the company, department by department.</h2>
+      <p class="lede">These windows live on the Raven OS desktop. The labels below are the departments shown in this draft.</p>
+      <ol class="ros-flow">
+        <li><span class="n">01</span><p>The owner, or a department lead, sends an invite link.</p></li>
+        <li><span class="n">02</span><p>People sign in with a company email.</p></li>
+        <li><span class="n">03</span><p>Onboarding cascades down the organization. Each lead invites their key people.</p></li>
+        <li><span class="n">04</span><p>Each person connects email and their job software, and gets a bot for their role.</p></li>
+      </ol>
+
+      <div class="ros-os">
+        <div class="ros-menubar">
+          <div class="ros-mark"><img src="/home-v2/logo-icon.png" alt="">Raven OS</div>
+          <div class="meta"><span class="example-tag">Example data</span><span>Example Company · Departments</span></div>
+        </div>
+        <div class="ros-desk">
+          <div class="ros-dept-grid">
+            <article class="ros-win">
+              <div class="ros-win-bar">Marketing and Sales <span class="ros-win-controls" aria-hidden="true"><i></i><i></i></span></div>
+              <div class="ros-dept-body">
+                <p>Onboard the people who run marketing and sales, then send the invite link to the next person in the department.</p>
+                <span class="btn btn-dark ros-btn-os">Onboard</span>
+              </div>
+            </article>
+            <article class="ros-win">
+              <div class="ros-win-bar">Business Operations <span class="ros-win-controls" aria-hidden="true"><i></i><i></i></span></div>
+              <div class="ros-dept-body">
+                <p>Set up operations, then cascade invites to the people who keep the company running day to day.</p>
+                <span class="btn btn-dark ros-btn-os">Onboard</span>
+              </div>
+            </article>
+            <article class="ros-win">
+              <div class="ros-win-bar">Shipping and Receiving <span class="ros-win-controls" aria-hidden="true"><i></i><i></i></span></div>
+              <div class="ros-dept-body">
+                <p>The warehouse lead signs in, then invites key people on the floor and in the office.</p>
+                <span class="btn btn-dark ros-btn-os">Onboard</span>
+              </div>
+            </article>
+            <article class="ros-win">
+              <div class="ros-win-bar">Finance and Accounting <span class="ros-win-controls" aria-hidden="true"><i></i><i></i></span></div>
+              <div class="ros-dept-body">
+                <p>Onboard the people who run the books, then send the invite link to the next person in the department.</p>
+                <span class="btn btn-dark ros-btn-os">Onboard</span>
+              </div>
+            </article>
+            <article class="ros-win">
+              <div class="ros-win-bar">HR and Hiring <span class="ros-win-controls" aria-hidden="true"><i></i><i></i></span></div>
+              <div class="ros-dept-body">
+                <p>Set up hiring and people operations, then cascade invites to the people who run them.</p>
+                <span class="btn btn-dark ros-btn-os">Onboard</span>
+              </div>
+            </article>
+            <article class="ros-win">
+              <div class="ros-win-bar">Customer Service <span class="ros-win-controls" aria-hidden="true"><i></i><i></i></span></div>
+              <div class="ros-dept-body">
+                <p>The customer lead signs in, then invites key people who talk to customers.</p>
+                <span class="btn btn-dark ros-btn-os">Onboard</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="ros-dock" aria-hidden="true">
+          <span class="ros-dock-item on"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></span>
+          <span class="ros-dock-item"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M10 20v-6h4v6"/></svg></span>
+          <span class="ros-dock-item"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.2"/><path d="M4 7l8 6 8-6"/></svg></span>
+          <span class="ros-dock-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3V20.5M3.5 12h2.2M18.3 12H20.5M6 6l1.6 1.6M16.4 16.4L18 18M18 6l-1.6 1.6M7.6 16.4L6 18"/></svg></span>
+        </div>
+      </div>
+
+      <div class="ros-invite">
+        <span class="badge">Example invite</span>
+        <p><b>Welcome to Raven.</b> Your boss sent you this link. Follow the prompts to onboard. Sign in with your company email, then connect email and your job software to get a bot for your role.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="dashboard">
+    <div class="wrap">
+      <span class="rule"></span>
+      <p class="eyebrow">Executive desktop</p>
+      <h2 class="wide-h">See the company by department.</h2>
+      <p class="lede">This is the Raven OS desktop itself — its own system chrome, not a window inside another operating system. Laptop first. The phone is a companion. Every figure below is example data.</p>
+
+      <div class="ros-devices">
+        <div>
+          <div class="ros-laptop">
+            <div class="ros-laptop-screen">
+              <div class="ros-os">
+                <div class="ros-menubar">
+                  <div class="ros-mark"><img src="/home-v2/logo-icon.png" alt="">Raven OS</div>
+                  <div class="meta"><span class="example-tag">Example data</span><span>Example Company</span><span>Tue 10:14</span></div>
+                </div>
+                <div class="ros-desk" style="padding:0;display:flex;flex-direction:column">
+                  <div class="ros-dash">
+                    <aside class="ros-dash-side">
+                      <div class="lbl">Departments</div>
+                      <span class="on">Marketing and Sales</span>
+                      <span>Business Operations</span>
+                      <span>Shipping and Receiving</span>
+                      <span>Finance and Accounting</span>
+                      <span>HR and Hiring</span>
+                      <span>Customer Service</span>
+                    </aside>
+                    <div class="ros-dash-main">
+                      <h3>Marketing and Sales</h3>
+                      <p class="ros-dash-kicker">Example data · not a real company</p>
+                      <div class="ros-metrics">
+                        <div class="ros-metric"><span class="k">Open leads</span><span class="v">12</span></div>
+                        <div class="ros-metric"><span class="k">Expected closes</span><span class="v">4</span></div>
+                        <div class="ros-metric"><span class="k">Follow-ups today</span><span class="v">3</span></div>
+                      </div>
+                      <div class="ros-lead-list">
+                        <div class="ros-lead-row"><span>Lead</span><span>Stage</span><span>Expected close</span></div>
+                        <div class="ros-lead-row"><span>A. Rivera</span><span><span class="ros-pill">Follow-up</span></span><span>Dec 4</span></div>
+                        <div class="ros-lead-row"><span>Example Co. Supply</span><span><span class="ros-pill">Quote sent</span></span><span>Dec 12</span></div>
+                        <div class="ros-lead-row"><span>West End Retail</span><span><span class="ros-pill muted">New lead</span></span><span>—</span></div>
+                        <div class="ros-lead-row"><span>Harbor Lane Shop</span><span><span class="ros-pill">Follow-up</span></span><span>Dec 18</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ros-dock" aria-hidden="true">
+                  <span class="ros-dock-item"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></span>
+                  <span class="ros-dock-item on"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M10 20v-6h4v6"/></svg></span>
+                  <span class="ros-dock-item"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.2"/><path d="M4 7l8 6 8-6"/></svg></span>
+                  <span class="ros-dock-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3V20.5M3.5 12h2.2M18.3 12H20.5M6 6l1.6 1.6M16.4 16.4L18 18M18 6l-1.6 1.6M7.6 16.4L6 18"/></svg></span>
+                </div>
+              </div>
+            </div>
+            <div class="ros-laptop-chin">Raven OS · laptop first</div>
+          </div>
+          <p class="ros-caption">Example data on an example company. These leads, stages, and dates are invented for the draft.</p>
+        </div>
+
+        <div class="ros-phone-col">
+          <p class="ros-phone-caption">Phone companion · secondary</p>
+          <div class="ros-phone">
+            <div class="ros-phone-screen">
+              <div class="ros-phone-notch" aria-hidden="true"></div>
+              <div class="ros-phone-bar">
+                <strong>Raven OS</strong>
+                <span class="example-tag">Example data</span>
+              </div>
+              <div class="ros-phone-body">
+                <div class="ros-ph-card">
+                  <p class="k">Example Company</p>
+                  <p class="v">Sales snapshot</p>
+                </div>
+                <div class="ros-ph-card">
+                  <p class="k">Open leads</p>
+                  <p class="v">12</p>
+                </div>
+                <div class="ros-ph-card">
+                  <p class="k">Expected closes</p>
+                  <p class="v">4</p>
+                </div>
+                <div class="ros-ph-card">
+                  <p>Companion view of the same desktop. Built for a quick look, not as the main workplace.</p>
+                </div>
+              </div>
+              <div class="ros-phone-dock" aria-hidden="true"><span></span><span class="on"></span><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot" id="site-footer">
+  <div class="wrap foot-top">
+    <div class="foot-brand"><img src="/images/logo.png" alt="BCI"></div>
+    <div class="foot-cols">
+      <div><h4>Pages</h4><a href="/about/">About</a><a href="/automation/">Raven Automation</a><a href="/#how-it-works">How It Works</a><a href="/team/">Team</a><a href="/early-access/">Contact</a></div>
+      <div><h4>Founders</h4>
+        <span class="fe"><b>Samuel Milner</b><a href="mailto:samuel.milner@bcicapital.io">samuel.milner@bcicapital.io</a></span>
+        <span class="fe"><b>Casey Adams</b><a href="mailto:casey.adams@bcicapital.io">casey.adams@bcicapital.io</a></span>
+        <span class="fe"><b>Joe Allen IV</b><a href="mailto:joe.allen@bcicapital.io">joe.allen@bcicapital.io</a></span>
+      </div>
+      <div><h4>Follow</h4>
+        <div class="socials">
+          <a href="#" aria-label="Instagram (link coming soon)"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" class="f"/></svg></a>
+          <a href="#" aria-label="Facebook (link coming soon)"><svg viewBox="0 0 24 24"><path d="M14 8.5h2.5V5H14c-2.2 0-3.5 1.5-3.5 3.7V11H8v3.4h2.5V21H14v-6.6h2.4l.5-3.4H14V9.2c0-.4.3-.7.7-.7z" class="f"/></svg></a>
+          <a href="#" aria-label="YouTube (link coming soon)"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z" class="f"/></svg></a>
+          <a href="#" aria-label="TikTok (link coming soon)"><svg viewBox="0 0 24 24"><path d="M14.5 3c.4 2.4 1.9 3.9 4.5 4.2v3.1c-1.6 0-3.1-.5-4.4-1.4v6.2a5.3 5.3 0 1 1-5.3-5.3c.3 0 .6 0 .9.1v3.2a2.2 2.2 0 1 0 1.3 2V3h3z" class="f"/></svg></a>
+        </div>
+        <p class="ph-note">Social links coming soon</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-bottom"><span>&copy; 2026 BCI</span></div>
+</footer>
+<script src="/automation-v2/automation.js"></script>
+<script src="/raven-os/raven-os.js"></script>
+</body>
+</html>
