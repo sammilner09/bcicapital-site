@@ -113,11 +113,17 @@ p{line-height:1.55}
 .final-copy{position:relative;text-align:center;padding:80px 24px;pointer-events:none}
 .final-copy a,.final-copy form{pointer-events:auto}
 .final h2{color:#fff;margin:0 auto 30px;max-width:16ch}
-.waitlist{display:flex;gap:10px;background:rgba(255,255,255,.08);padding:8px;border-radius:999px;max-width:520px;margin:0 auto;pointer-events:auto;border:1px solid rgba(255,255,255,.14)}
+.contact-form{max-width:680px;margin:0 auto}
+.waitlist{display:flex;gap:10px;background:rgba(255,255,255,.08);padding:8px;border-radius:999px;max-width:680px;margin:0 auto;pointer-events:auto;border:1px solid rgba(255,255,255,.14);position:relative;overflow:hidden}
 .waitlist input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;font:inherit;font-size:17px;padding:0 18px}
 .waitlist input::placeholder{color:#9AA6BA}
 .waitlist .btn{height:48px;border:0;cursor:pointer;font-family:inherit}
+.waitlist .btn:disabled{opacity:.6;cursor:default;transform:none}
 .form-note{color:#9AA6BA;font-size:14px;margin:16px 0 0}
+.contact-form .form-status{display:none;margin:14px 0 0;font-size:15px;font-weight:500}
+.contact-form .form-status.show{display:block}
+.contact-form .form-status.ok{color:#b7f0d2}
+.contact-form .form-status.err{color:#ffb4b4}
 
 /* footer — same as home v2 */
 .foot{padding:90px 0 0}
@@ -177,7 +183,7 @@ p{line-height:1.55}
   .path-wrap{margin-top:36px}
   .final-in{border-radius:24px;min-height:340px}
   .waitlist{flex-direction:column;border-radius:22px}
-  .waitlist input{height:48px}
+  .waitlist input{height:48px;flex:none}
   .foot-bottom{flex-direction:column;gap:10px}
   .reveal{transform:translateY(8px);transition-duration:.45s}
 }

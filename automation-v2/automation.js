@@ -11,12 +11,6 @@
   var phone=matchMedia('(max-width:600px)').matches;
   var snap=document.documentElement.hasAttribute('data-screenshot');
 
-  // Demo request is preview-only and not wired, same as the waitlist box.
-  var form=document.querySelector('.demo-form');
-  if(form){
-    form.addEventListener('submit',function(e){e.preventDefault()});
-  }
-
   // Background particles only behind the later (raven) section.
   // Phones keep a lighter, slower field. Reduced motion skips motion entirely.
   var canvas=document.getElementById('laterParticles');
